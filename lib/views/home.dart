@@ -5,6 +5,7 @@ import 'package:beehairsalon/config/palette.dart';
 import 'package:beehairsalon/config/styles.dart';
 import 'package:beehairsalon/data/data.dart';
 import 'package:beehairsalon/widgets/widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -87,7 +88,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         vertical: 10.0,
                         horizontal: 20.0,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        launch(('tel:0832845428}'));
+                      },
                       color: Colors.red,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
@@ -97,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.white,
                       ),
                       label: Text(
-                        '0369764816',
+                        '0832845428',
                         style: Styles.buttonTextStyle,
                       ),
                       textColor: Colors.white,
@@ -238,4 +241,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+
 }
+
+

@@ -18,8 +18,10 @@ class CustomDrawerState extends State<CustomDrawer> {
 
   Future<String> getUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String name = prefs.getString('name');
-    return name;
+    setState(() {
+      _name = prefs.getString('name');
+    });
+
   }
 
   @override
