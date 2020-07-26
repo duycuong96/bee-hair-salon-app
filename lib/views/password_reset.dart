@@ -1,3 +1,4 @@
+import 'package:beehairsalon/config/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,7 +12,8 @@ class PasswordReset extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Password Reset'),
+        title: Text('Quên mật khẩu'),
+        backgroundColor: Palette.primaryColor,
       ),
       body: Center(
         child: Container(
@@ -49,7 +51,7 @@ class PasswordResetFormState extends State<PasswordResetForm> {
         Navigator.pushReplacementNamed( context, '/login' );
       } else {
         setState(() {
-          message = 'An error occurred during password reset.';
+          message = 'Đã xảy ra lỗi trong khi đặt lại mật khẩu.';
         });
       }
     }
@@ -64,11 +66,10 @@ class PasswordResetFormState extends State<PasswordResetForm> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            'Request Password Reset',
+            'Quên mật khẩu',
             textAlign: TextAlign.center,
             style: Styles.h1,
           ),
-          SizedBox(height: 10.0),
           Text(
             message,
             textAlign: TextAlign.center,

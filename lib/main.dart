@@ -17,6 +17,7 @@ void main() {
     ChangeNotifierProvider(
       builder: (context) => AuthProvider(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         initialRoute: '/',
         routes: {
           '/': (context) => Router(),

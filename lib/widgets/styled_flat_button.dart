@@ -1,3 +1,4 @@
+import 'package:beehairsalon/config/palette.dart';
 import 'package:flutter/material.dart';
 
 import 'package:beehairsalon/styles/styles.dart';
@@ -13,7 +14,7 @@ class StyledFlatButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-      color: Colors.blue[500],
+      color: Palette.primaryColor,
       splashColor: Colors.blue[200],
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 18.0),
@@ -32,7 +33,7 @@ class StyledFlatButton extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(radius ?? 4.0),
         side: BorderSide(
-          color: Colors.blue[500],
+          color: Palette.primaryColor,
           width: 2,
         ),
       ),

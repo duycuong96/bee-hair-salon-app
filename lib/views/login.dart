@@ -1,3 +1,4 @@
+import 'package:beehairsalon/config/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:provider/provider.dart';
@@ -12,10 +13,6 @@ class LogIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Log In'),
-        leading: Container(),
-      ),
       body: Center(
         child: Container(
           child: Padding(
@@ -62,7 +59,6 @@ class LogInFormState extends State<LogInForm> {
             textAlign: TextAlign.center,
             style: Styles.h1,
           ),
-          SizedBox(height: 10.0),
           Consumer<AuthProvider>(
             builder: (context, provider, child) => provider.notification ?? NotificationText(''),
           ),
@@ -80,16 +76,16 @@ class LogInFormState extends State<LogInForm> {
           TextFormField(
             obscureText: true,
             decoration: Styles.input.copyWith(
-              hintText: 'Password',
+              hintText: 'Mật khẩu',
             ),
             validator: (value) {
               password = value.trim();
-              return Validate.requiredField(value, 'Password is required.');
+              return Validate.requiredField(value, 'Yêu cầu nhập mật khẩu.');
             }
           ),
           SizedBox(height: 15.0),
           StyledFlatButton(
-            'Sign In',
+            'Đăng nhập',
             onPressed: submit,
           ),
           SizedBox(height: 20.0),
@@ -98,12 +94,12 @@ class LogInFormState extends State<LogInForm> {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: "Don't have an account? ",
+                    text: "Chưa có tài khoản? ",
                     style: Styles.p,
                   ),
                   TextSpan(
-                    text: 'Register.',
-                    style: Styles.p.copyWith(color: Colors.blue[500]),
+                    text: 'Đăng ký.',
+                    style: Styles.p.copyWith(color: Palette.primaryColor),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () => {
                         Navigator.pushNamed(context, '/register'),
@@ -117,8 +113,8 @@ class LogInFormState extends State<LogInForm> {
           Center(
             child: RichText(
               text: TextSpan(
-                text: 'Forgot Your Password?',
-                style: Styles.p.copyWith(color: Colors.blue[500]),
+                text: 'Quên mật khẩu?',
+                style: Styles.p.copyWith(color: Palette.primaryColor),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () => {
                      Navigator.pushNamed(context, '/password-reset'),

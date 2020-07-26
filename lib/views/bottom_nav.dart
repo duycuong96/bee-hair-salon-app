@@ -1,6 +1,7 @@
 
 
 import 'package:beehairsalon/views/home.dart';
+import 'package:beehairsalon/views/salon/list_salon.dart';
 import 'package:flutter/material.dart';
 import 'package:beehairsalon/views/screens.dart';
 
@@ -12,9 +13,9 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     HomeScreen(),
+    SalonScreen(),
     HomeScreen(),
     HomeScreen(),
-    Scaffold(),
   ];
   int _currentIndex = 0;
 

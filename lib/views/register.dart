@@ -1,3 +1,4 @@
+import 'package:beehairsalon/config/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,7 +12,8 @@ class Register extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Register'),
+        title: Text('Đăng ký tài khoản'),
+        backgroundColor: Palette.primaryColor,
       ),
       body: Center(
         child: Container(
@@ -68,11 +70,11 @@ class RegisterFormState extends State<RegisterForm> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            'Register Account',
+            'Đăng ký tài khoản',
             textAlign: TextAlign.center,
             style: Styles.h1,
           ),
-          SizedBox(height: 10.0),
+
           Text(
             message,
             textAlign: TextAlign.center,
@@ -81,11 +83,11 @@ class RegisterFormState extends State<RegisterForm> {
           SizedBox(height: 30.0),
           TextFormField(
             decoration: Styles.input.copyWith(
-              hintText: 'Name',
+              hintText: 'Tên',
             ),
             validator: (value) {
               full_name = value.trim();
-              return Validate.requiredField(value, 'Name is required.');
+              return Validate.requiredField(value, 'Nhập đầy đủ tên.');
             }
           ),
           SizedBox(height: 15.0),
@@ -102,22 +104,22 @@ class RegisterFormState extends State<RegisterForm> {
           TextFormField(
             obscureText: true,
             decoration: Styles.input.copyWith(
-              hintText: 'Password',
+              hintText: 'Mật khẩu',
             ),
             validator: (value) {
               password = value.trim();
-              return Validate.requiredField(value, 'Password is required.');
+              return Validate.requiredField(value, 'Yêu cầu nhập mật khẩu.');
             }
           ),
           SizedBox(height: 15.0),
           TextFormField(
             obscureText: true,
             decoration: Styles.input.copyWith(
-              hintText: 'Password Confirm',
+              hintText: 'Nhập lại mật khẩu',
             ),
             validator: (value) {
               passwordConfirm = value.trim();
-              return Validate.requiredField(value, 'Password confirm is required.');
+              return Validate.requiredField(value, 'Nhập lại mật khẩu chưa khớp.');
             }
           ),
           SizedBox(height: 15.0),

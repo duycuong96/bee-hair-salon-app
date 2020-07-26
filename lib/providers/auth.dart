@@ -133,6 +133,12 @@ class AuthProvider with ChangeNotifier {
     await storage.setString('name', apiResponse['data']['full_name']);
   }
 
+  Future<String> getUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String name = prefs.getString('name');
+    return name;
+  }
+
   Future<String> getToken() async {
     SharedPreferences storage = await SharedPreferences.getInstance();
     String token = storage.getString('token');

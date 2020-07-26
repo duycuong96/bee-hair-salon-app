@@ -2,8 +2,32 @@
 import 'package:beehairsalon/views/login.dart';
 import 'package:flutter/material.dart';
 import 'package:beehairsalon/config/palette.dart';
+import 'package:beehairsalon/providers/auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class CustomDrawer extends StatelessWidget with PreferredSizeWidget {
+
+
+class CustomDrawer extends StatefulWidget {
+  @override
+  CustomDrawerState createState() => CustomDrawerState();
+}
+
+class CustomDrawerState extends State<CustomDrawer> {
+
+  String _name = "";
+
+  Future<String> getUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String name = prefs.getString('name');
+    return name;
+  }
+
+  @override
+  void initState() {
+    getUserData().then(updateName);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -13,7 +37,7 @@ class CustomDrawer extends StatelessWidget with PreferredSizeWidget {
             currentAccountPicture: CircleAvatar(
               backgroundImage: NetworkImage('https://secure.gravatar.com/avatar/d2ac88422b29a9a124df38d676bff03d?s=40&r=g'),
             ),
-            accountName: new Text('Duy Cường'),
+            accountName: new Text(_name == null ? 'Cuong VD' : _name),
             accountEmail: new Text('codigoalphacol@gmail.com'),
 
           ),
@@ -62,6 +86,15 @@ class CustomDrawer extends StatelessWidget with PreferredSizeWidget {
     );
   }
 
+  void updateName(String name) {
+    setState(() {
+      this._name = name;
+    });
+  }
+
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }
+
+
+

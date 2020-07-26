@@ -19,10 +19,10 @@ class Validate {
   static String validateEmail(String value) {
     String email = value.trim();
     if (email.isEmpty) {
-      return 'Email is required.';
+      return 'Nhập đầy đủ email.';
     }
     if (! isEmail(email)) {
-      return 'Valid email required.';
+      return 'Nhập đầy đủ email.';
     }
     return null;
   }
